@@ -6,6 +6,7 @@ const server = express();
 
 // Middleware to parse JSON request body
 server.use(bodyParser.json());
+server.use(express.urlencoded({ extended: true })); // Add this
 
 // Product Routes
 server.use("/api/products", productRouter);
