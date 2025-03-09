@@ -1,9 +1,8 @@
 export default class ProductModel {
-  constructor(id, name, price, image, category) {
+  constructor(id, name, price, category) {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.image = image;
     this.category = category;
   }
 
@@ -11,12 +10,11 @@ export default class ProductModel {
     return products;
   }
 
-  static add(name, price, image, category) {
+  static add(name, price, category) {
     const newProduct = new ProductModel(
       products.length + 1,
       name,
       price,
-      image,
       category
     );
     products.push(newProduct);

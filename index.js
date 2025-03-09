@@ -3,9 +3,6 @@ import bodyParser from "body-parser";
 import productRouter from "./features/product/product.routes.js";
 
 const server = express();
-
-// Middleware to parse JSON request body
-server.use(bodyParser.json());
 server.use(express.urlencoded({ extended: true })); // Add this
 
 // Product Routes

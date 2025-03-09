@@ -15,8 +15,7 @@ export default class ProductController {
     try {
       console.log(req.body);
       const { name, price, category } = req.body;
-      const image = req.file.filename;
-      const newProduct = ProductModel.add(name, price, image, category);
+      const newProduct = ProductModel.add(name, price, category);
       return res
         .status(201)
         .send({ msg: "New product added successfully", newProduct });
