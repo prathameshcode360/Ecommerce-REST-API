@@ -1,12 +1,15 @@
 import express from "express";
-import bodyParser from "body-parser";
 import productRouter from "./features/product/product.routes.js";
+import userRouter from "./features/users/user.routes.js";
 
 const server = express();
 server.use(express.urlencoded({ extended: true })); // Add this
 
 // Product Routes
 server.use("/api/products", productRouter);
+
+//User Routes
+server.use("/api/users", userRouter);
 
 // Default route
 server.get("/", (req, res) => {
