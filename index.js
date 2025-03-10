@@ -1,12 +1,13 @@
 import express from "express";
 import productRouter from "./features/product/product.routes.js";
 import userRouter from "./features/users/user.routes.js";
+import basicAuth from "./middlewares/basicAuth.middleware.js";
 
 const server = express();
 server.use(express.urlencoded({ extended: true })); // Add this
 
 // Product Routes
-server.use("/api/products", productRouter);
+server.use("/api/products", basicAuth, productRouter);
 
 //User Routes
 server.use("/api/users", userRouter);

@@ -5,6 +5,11 @@ export default class UserModel {
     this.email = email;
     this.password = password;
   }
+
+  static getAll() {
+    return users;
+  }
+
   static register(name, email, password) {
     const newUser = {
       id: users.length + 1,
