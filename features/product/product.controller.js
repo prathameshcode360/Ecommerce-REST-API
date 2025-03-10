@@ -39,4 +39,21 @@ export default class ProductController {
       return res.status(500).send({ msg: "Internal server error" });
     }
   }
+  filterProduct(req, res) {
+    try {
+      console.log(req.query);
+      const minPrice = Number(req.query.minPrice);
+      const maxPrice = Number(req.query.maxPrice);
+      const category = req.query.category;
+      const result = ProductModel.filter(minPrice, maxPrice, category);
+      if (result) {
+        return res.status(200).send({ products: result });
+      } else {
+        return res.status(404).send({ msg: "Product not found" });
+      }
+    } catch (error) {
+      console.log("Error", error);
+      return res.status(500).send({ msg: "Internal server error" });
+    }
+  }
 }

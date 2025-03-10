@@ -7,7 +7,7 @@ const server = express();
 server.use(express.urlencoded({ extended: true })); // Add this
 
 // Product Routes
-server.use("/api/products", jwtAuth, productRouter);
+server.use("/api/products", productRouter);
 
 //User Routes
 server.use("/api/users", userRouter);
