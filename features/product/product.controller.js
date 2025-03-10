@@ -56,4 +56,17 @@ export default class ProductController {
       return res.status(500).send({ msg: "Internal server error" });
     }
   }
+  rateProduct(req, res) {
+    try {
+      console.log(req.body);
+      const { userId, productId, rating } = req.body;
+      const result = ProductModel.rate(userId, productId, rating);
+      if (result) {
+        return res.send(result);
+      }
+    } catch (error) {
+      console.log("rate function erroe:", error);
+      return res.status(500).send({ msg: "Internal Server Error" });
+    }
+  }
 }

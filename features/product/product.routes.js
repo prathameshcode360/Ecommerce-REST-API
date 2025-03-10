@@ -7,6 +7,7 @@ const productController = new ProductController();
 productRouter.get("/filter", productController.filterProduct);
 productRouter.get("/", productController.getProducts);
 productRouter.post("/addproduct", productController.addProduct);
+productRouter.post("/rate", productController.rateProduct);
 productRouter.get("/:id", productController.getOneProduct);
 
 export default productRouter;
