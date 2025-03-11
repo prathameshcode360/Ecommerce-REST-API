@@ -4,7 +4,7 @@ export default class ProductController {
   getProducts(req, res) {
     try {
       const products = ProductModel.getAll();
-      return res.status(200).send({ products });
+      return res.status(200).send(products);
     } catch (error) {
       console.log(error);
       return res.status(500).send({ msg: "Internal server error" });

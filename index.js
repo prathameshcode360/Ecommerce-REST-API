@@ -10,6 +10,14 @@ server.use(express.urlencoded({ extended: true })); // Add this
 // add swagger configuration
 // server.use("/api-docs", swagger.serve, swagger.setup(apiDoc));
 
+// CORS middleware
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+});
+
 // Product Routes
 server.use("/api/products", productRouter);
 
