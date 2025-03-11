@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import productRouter from "./features/product/product.routes.js";
 import userRouter from "./features/users/user.routes.js";
 import cartRouter from "./features/cart/cart.routes.js";
@@ -11,12 +12,17 @@ server.use(express.urlencoded({ extended: true })); // Add this
 // server.use("/api-docs", swagger.serve, swagger.setup(apiDoc));
 
 // CORS middleware
-server.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET");
-  res.header("Access-Control-Allow-Headers", "*");
-  next();
-});
+
+const corsOption = {
+  origin: "http://127.0.0.1:5500/index.html",
+};
+server.use(cors(corsOption));
+// server.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Methods", "GET");
+//   res.header("Access-Control-Allow-Headers", "*");
+//   next();
+// });
 
 // Product Routes
 server.use("/api/products", productRouter);
