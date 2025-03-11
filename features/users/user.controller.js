@@ -34,4 +34,13 @@ export default class UserController {
       return res.status(500).send({ msg: "Internal server error" });
     }
   }
+  getUsers(req, res) {
+    try {
+      const users = UserModel.getAll();
+      return res.status(200).send({ users });
+    } catch (error) {
+      console.log("Error:", error);
+      return res.status(500).send({ msg: "Internal server error" });
+    }
+  }
 }
