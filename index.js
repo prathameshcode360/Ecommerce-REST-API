@@ -1,6 +1,4 @@
 import express from "express";
-import swagger from "swagger-ui-express";
-import apiDoc from "./swagger.json" assert { type: "json" };
 import productRouter from "./features/product/product.routes.js";
 import userRouter from "./features/users/user.routes.js";
 import cartRouter from "./features/cart/cart.routes.js";
@@ -10,7 +8,7 @@ const server = express();
 server.use(express.urlencoded({ extended: true })); // Add this
 
 // add swagger configuration
-server.use("/api-docs", swagger.serve, swagger.setup(apiDoc));
+// server.use("/api-docs", swagger.serve, swagger.setup(apiDoc));
 
 // Product Routes
 server.use("/api/products", productRouter);
